@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('agenda');
             $table->date('res_date');
             $table->string('status');
-            $table->string('encoded_by');
+            $table->string('encoded_by')->default('default_value');
             $table->timestamps();
         });
     }

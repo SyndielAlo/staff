@@ -296,71 +296,71 @@
                 <div class="card card-default card-info">
                     <div class="card-body">
                     @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="col-md-6">
-                                <form id="addResolutionForm" class="form-group" method="POST" action="{{ route('resolution.add') }}">
-                                @csrf
-                            <div class="form-group">
-                                <label for="res_number">Res. No.</label>
-                                <input type="text" id="res_number" name="res_number" class="form-control" readonly>
-                            </div>
-                        </div>
-                         </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Res. Date</label>
-                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                        <input type="text" id="Res. Date" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="summernote">Agenda</label>
-                                <textarea id="summernote">
-                                    Place <em>some</em> <u>text</u> <strong>here</strong>
-                                </textarea>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="inputName">Tags</label>
-                                    <input type="text" id="Tags" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Status</label>
-                                    <select id="Status" class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;">
-                                        <option selected="selected">Select a Status</option>
-                                        <option>Confirmed</option>
-                                        <option>Amended</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="validationCustom03" class="form-label">Encoded by</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">Name & Date</span>
-                                    <input type="text" id="Name" aria-label="Name" class="form-control">
-                                    <input type="date" id="Date" aria-label="Date" class="form-control">
-                                </div>
-                            </div>
-                        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
-                        <div class="col-12 mt-5">
-                        <a href="{{ route('dashboard') }}" class="btn btn-danger">Cancel</a>
-                        <button type="submit" class="btn btn-success float-right">Add BOD Resolution</button>
-                        </div>
-                        </form>
+<div class="row">
+    <div class="col-md-12">
+    <form id="addResolutionForm" class="form-group" method="post" action="{{ route('resolution.store') }}">
+            @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="res_number">Res. No.</label>
+                        <input type="text" id="res_number" name="res_number" class="form-control" readonly>
                     </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Res. Date</label>
+                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                            <input type="text" name="res_date" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="summernote">Agenda</label>
+                    <textarea name="agenda" id="summernote">Place <em>some</em> <u>text</u> <strong>here</strong></textarea>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Tags">Tags</label>
+                        <input type="text" name="tags" id="Tags" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Status">Status</label>
+                        <select name="status" id="Status" class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                            <option selected="selected">Select a Status</option>
+                            <option>Confirmed</option>
+                            <option>Amended</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom03" class="form-label">Encoded by</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Name & Date</span>
+                        <input type="text" name="encoded_by_name" id="Name" aria-label="Name" class="form-control">
+                        <input type="date" name="encoded_by_date" id="Date" aria-label="Date" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-5">
+                <a href="{{ route('dashboard') }}" class="btn btn-danger">Cancel</a>
+                <button type="submit" class="btn btn-success float-right">Add BOD Resolution</button>
+            </div>
+        </form>
+    </div>
+</div>
+
                     <!-- /.col-->
                 </div>
                 <!-- /.card -->

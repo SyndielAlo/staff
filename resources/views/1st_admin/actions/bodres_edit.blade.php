@@ -293,67 +293,45 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card card-default card-info">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <form action="put">
-                                <form id="updateRES" class="form-group" method="POST" action="{{ route('resolution.update') }}">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="inputName">Res. No.</label>
-                                    <input type="text" id="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Res. Date</label>
-                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="summernote">Agenda</label>
-                                <textarea id="summernote">
-                                    Place <em>some</em> <u>text</u> <strong>here</strong>
-                                </textarea>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="inputName">Tags</label>
-                                    <input type="text" id="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Status</label>
-                                    <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;">
-                                        <option selected="selected">Select a Status</option>
-                                        <option>Confirmed</option>
-                                        <option>Amended</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="validationCustom03" class="form-label">Encoded by</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">Name & Date</span>
-                                    <input type="text" aria-label="Name" class="form-control">
-                                    <input type="date" aria-label="Date" class="form-control">
-                                </div>
-                            </div>
-                        </div>
+                <div class="card-body">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
-                        <div class="col-12 mt-5">
-                            <a href="#" class="btn btn-danger">Cancel</a>
-                            <input type="submit" value="Update" class="btn btn-warning float-right">
+    <div class="row">
+        <div class="col-md-12">
+            <form id="editResolutionForm" class="form-group" method="post" action="{{ route('resolution.update', ['id' => $resolution->id]) }}">
+                @csrf
+                @method('PUT') <!-- Use PUT method for updating -->
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="res_number">Res. No.</label>
+                            <input type="text" id="res_number" name="res_number" class="form-control" value="{{ $resolution->res_number }}" readonly>
                         </div>
-                        </form>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Res. Date</label>
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input type="text" name="res_date" class="form-control datetimepicker-input" data-target="#reservationdate" value="{{ $resolution->res_date }}">
+                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Other form fields with values from $resolution -->
+                </div>
+
+                <div class="col-12 mt-5">
+                    <a href="{{ route('dashboard') }}" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn btn-success float-right">Update BOD Resolution</button>
+                </div>
+            </form>
                     <!-- /.col-->
                 </div>
                 <!-- /.card -->
@@ -551,6 +529,23 @@
 
 
   // DropzoneJS Demo Code End
+  document.getElementById('updateResolutionForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Get form data
+        var formData = new FormData(event.target);
+
+        // Make the AJAX request
+        axios.post(event.target.action, formData)
+            .then(function (response) {
+                // Handle success, you can redirect or display a success message
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                // Handle errors, you can display an error message
+                console.error(error);
+            });
+    });
 </script>
 
 </body>

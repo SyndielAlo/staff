@@ -320,7 +320,7 @@
                     <div class="card">
                       <div class="card-header">
                       <h3 class="card-title">
-                      <a href="{{ route('resolutions.create') }}" class="btn btn-block bg-gradient-primary">Add BOD Resolution</a>
+                      <a href="{{ route('resolution.create') }}" class="btn btn-block bg-gradient-primary">Add BOD Resolution</a>
                      </h3>
                       </div>
                       <!-- /.card-header -->
@@ -352,7 +352,7 @@
                                       </button>
                                   </a>
                                   <!-- Add a delete button with a form for each record -->
-                                  <form action="{{ route('resolutions.destroy', $resolution->id) }}" method="POST">
+                                  <form action="{{ route('resolution.destroy', $resolution->id) }}" method="POST">
                                       @csrf
                                       @method('DELETE')
                                       <button type="submit" class="icon delete btn btn-danger">

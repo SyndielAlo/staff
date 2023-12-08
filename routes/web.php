@@ -44,10 +44,10 @@ Route::get('/bod-resolution-dashboard', [DasboardTest_controller::class, 'bod_re
 Route::get('/department-head-dashboard', [DasboardTest_controller::class, 'department_head_dashboard'])->name('department-head-dashboard');
 Route::get('/bod-login', [LoginTest_controller::class, 'bodLogin'])->name('bod-login');
 Route::get('/dh-login', [LoginTest_controller::class, 'dhLogin'])->name('dh-login');
+//Resolution 
 Route::get('/dashboard', [ResolutionController::class, 'index'])->name('dashboard');
-Route::match(['get', 'post'], '/resolution/create', [ResolutionController::class, 'create'])->name('resolutions.create');
-Route::get('/resolution/edit/{id}', [ResolutionController::class, 'edit'])->name('resolutions.edit');
-Route::put('/resolution/update/{id}', [ResolutionController::class, 'update'])->name('resolution.update');
-Route::delete('/resolution/destroy/{id}', [ResolutionController::class, 'destroy'])->name('resolutions.destroy');
-Route::POST('/resolution/store', [ResolutionController::class, 'store'])->name('resolutions.store');
-Route::POST('/resolution/add', [ResolutionController::class, 'addResolution'])->name('resolution.add');
+Route::get('/resolution/create', [ResolutionController::class, 'create'])->name('resolution.create');
+Route::post('/resolution/store', [ResolutionController::class, 'store'])->name('resolution.store');
+Route::get('/resolution/edit/{id}', [ResolutionController::class, 'updateForm'])->name('resolution.edit');
+Route::post('/resolution/update/{id}', [ResolutionController::class, 'update'])->name('resolution.update');
+Route::get('/resolution/delete/{id}', [ResolutionController::class, 'destroy'])->name('resolution.delete');
