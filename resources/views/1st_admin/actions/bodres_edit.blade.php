@@ -324,7 +324,36 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Other form fields with values from $resolution -->
+                    <div class="form-group col-md-12">
+                    <label for="summernote">Agenda</label>
+                    <textarea name="agenda" id="summernote">Place <em>some</em> <u>text</u> <strong>here</strong></textarea>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Tags">Tags</label>
+                        <input type="text" name="tags" id="Tags" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Status">Status</label>
+                        <select name="status" id="Status" class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                            <option selected="selected">Select a Status</option>
+                            <option>Confirmed</option>
+                            <option>Amended</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom03" class="form-label">Encoded by</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Name & Date</span>
+                        <input type="text" name="encoded_by_name" id="Name" aria-label="Name" class="form-control">
+                        <input type="date" name="encoded_by_date" id="Date" aria-label="Date" class="form-control">
+                    </div>
+                </div>
+            </div>
+
                 </div>
 
                 <div class="col-12 mt-5">

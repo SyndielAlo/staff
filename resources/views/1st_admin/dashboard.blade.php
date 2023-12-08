@@ -346,13 +346,13 @@
                               <td>{{ $resolution->status }}</td>
                               <td>{{ $resolution->encoded_by }}</td>
                               <td style="display: flex; gap: 5%;">
-                                  <a href="{{ route('resolution.update', $resolution->id) }}" class="icon edit">
+                                  <a href="{{ route('resolution.edit', $resolution->id) }}" class="icon edit">
                                       <button type="button" class="btn btn-warning">
                                           <i class="fas fa-pen-nib"></i>
                                       </button>
                                   </a>
                                   <!-- Add a delete button with a form for each record -->
-                                  <form action="{{ route('resolution.destroy', $resolution->id) }}" method="POST">
+                                  <form action="{{ route('resolution.delete', $resolution->id) }}" method="POST">
                                       @csrf
                                       @method('DELETE')
                                       <button type="submit" class="icon delete btn btn-danger">

@@ -48,6 +48,6 @@ Route::get('/dh-login', [LoginTest_controller::class, 'dhLogin'])->name('dh-logi
 Route::get('/dashboard', [ResolutionController::class, 'index'])->name('dashboard');
 Route::get('/resolution/create', [ResolutionController::class, 'create'])->name('resolution.create');
 Route::post('/resolution/store', [ResolutionController::class, 'store'])->name('resolution.store');
-Route::get('/resolution/edit/{id}', [ResolutionController::class, 'updateForm'])->name('resolution.edit');
-Route::post('/resolution/update/{id}', [ResolutionController::class, 'update'])->name('resolution.update');
-Route::get('/resolution/delete/{id}', [ResolutionController::class, 'destroy'])->name('resolution.delete');
+Route::get('/resolution/edit/{id}', [ResolutionController::class, 'edit'])->name('resolution.edit');
+Route::put('/resolution/update/{id}', [ResolutionController::class, 'update'])->name('resolution.update');
+Route::delete('/resolution/delete/{id}', [ResolutionController::class, 'destroy'])->name('resolution.delete');
