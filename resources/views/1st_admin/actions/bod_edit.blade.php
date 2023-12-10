@@ -293,74 +293,119 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="card card-default card-info">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="inputName">ID No.</label>
-                                    <input type="number" id="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label for="inputName">Name</label>
-                                    <input type="text" id="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="inputName">Position</label>
-                                    <input type="text" id="" class="form-control">
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Period</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control float-right" id="reservation">
-                                </div>
-                                <!-- /.input group -->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleInputFile">File input</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Status</label>
-                                    <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;">
-                                        <option selected="selected">Select a Status</option>
-                                        <option>Open</option>
-                                        <option>Closed</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 mt-5">
-                            <a href="#" class="btn btn-danger">Cancel</a>
-                            <input type="submit" value="Update" class="btn btn-warning float-right">
-                        </div>
-
-                    </div>
-                    <!-- /.col-->
+                <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Edit Board Member</h3>
+        </div>
+        <div class="card-body">
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-                <!-- /.card -->
+            @endif
+
+            <form action="{{ route('bod_update', $user->id) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT') {{-- Use the PUT method for update --}}
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Fullname" value="{{ $user->name }}">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" class="form-control" value="{{ $user->username }}">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="confirm_password">Confirm Password</label>
+                            <input type="password" id="confirm_password" name="password_confirmation" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="position">Position</label>
+                            <input type="text" id="position" name="position" class="form-control" value="{{ $user->position }}">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Period</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control float-right" id="reservation" name="period" value="{{ $user->period }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="file">File input</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="file" name="file">
+                                    <label class="custom-file-label" for="file">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="form-control select2 select2-primary" id="status" name="status" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option value="Open" {{ $user->status == 'Open' ? 'selected' : '' }}>Open</option>
+                                <option value="Closed" {{ $user->status == 'Closed' ? 'selected' : '' }}>Closed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="admin">Admin Level</label>
+                            <select class="form-control select2 select2-primary" id="admin" name="admin" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option value="1" {{ $user->admin == 1 ? 'selected' : '' }}>BOD</option>
+                                <option value="0" {{ $user->admin == 0 ? 'selected' : '' }}>Admin assistant</option>
+                                {{-- Assuming that the user can be both a BOD Secretary and an Admin --}}
+                                <option value="0" {{ $user->admin == 0 ? 'selected' : '' }}>BOD Secretary</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <a href="{{ route('bod_dashboard') }}" class="btn btn-danger">Cancel</a>
+                        <button type="submit" class="btn btn-success float-right">Update Board Member</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
             </div>
         </section>
         <!-- /.content -->

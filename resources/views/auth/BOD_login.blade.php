@@ -165,24 +165,26 @@
             </nav>
 
             <div class="form-box">
+            <form action="{{ route('login.submit') }}" method="post">
+                @csrf
                 <div class="login-container" id="login">
                     <div class="top">
                         <header>Sign In</header>
                     </div>
                     <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Username">
+                        <input type="text" name="username" class="input-field" placeholder="Username">
                         <i class="fas fa-circle-user"></i>
                     </div>
                     <div class="input-box">
-                        <input type="password" class="input-field" placeholder="Password">
+                        <input type="password" name="password" class="input-field" placeholder="Password">
                         <i class="fas fa-lock"></i>
                     </div>
 
                     <div class="input-box">
-                        <a href="" class="submit btn btn-danger">Sign In</a>
+                        <button type="submit" class="submit btn btn-danger">Sign In</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
         <!-- jQuery -->

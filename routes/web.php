@@ -10,6 +10,9 @@ use App\Http\Controllers\BOD_MainController;
 use App\Http\Controllers\BOD_ResolutionController;
 use App\Http\Controllers\BOD_DHController;
 use App\Http\Controllers\BODController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DepartmentHeadController;
+use App\Http\Controllers\UserProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +23,16 @@ use App\Http\Controllers\BODController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Show login form
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login-BOD');
+
+// Process login form submission
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+
+// Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,10 +61,13 @@ Route::get('/bod-committee-dashboard', [DasboardTest_controller::class, 'bod_com
 Route::get('/bod-resolution-dashboard', [DasboardTest_controller::class, 'bod_resolution_dashboard'])->name('bod-resolution-dashboard');
 Route::get('/department-head-dashboard', [DasboardTest_controller::class, 'department_head_dashboard'])->name('department-head-dashboard');
 
-//login form
-Route::get('/bod-login', [LoginTest_controller::class, 'bodLogin'])->name('bod-login');
-Route::get('/dh-login', [LoginTest_controller::class, 'dhLogin'])->name('dh-login');
 
+
+
+
+
+// Add other authentication-related routes as need
+Route::get('/dh-login', [LoginTest_controller::class, 'dhLogin'])->name('dh-login');
 //Admin dashboards
 Route::get('/dashboard', [ResolutionController::class, 'index'])->name('dashboard');
 //BOD main dashboard
@@ -74,7 +90,48 @@ Route::get('/bod-resolution', [BOD_ResolutionController::class, 'index'])->name(
 Route::get('/bod-dh', [BOD_DHController::class, 'index'])->name('bod.dh');
 
 
-// Route to show the form
-Route::get('/bod-form', [BODController::class, 'showForm'])->name('bod-form');
-// Route to handle form submission
-Route::post('/add-bod', [BODController::class, 'addBOD'])->name('add-bod');
+// BOD Dashboard
+Route::get('/bod_dashboard', [BODController::class, 'index'])->name('bod_dashboard');
+
+// Add Board Member
+Route::get('/bod_create', [BODController::class, 'create'])->name('bod_create');
+Route::post('/bod_store', [BODController::class, 'store'])->name('bod_store');
+
+// Edit Board Member
+Route::get('/bod_edit/{id}', [BODController::class, 'edit'])->name('bod_edit');
+Route::put('/bod_update/{id}', [BODController::class, 'update'])->name('bod_update');
+
+// Delete Board Member
+Route::delete('/bod_destroy/{id}', [BODController::class, 'destroy'])->name('bod_destroy');
+
+// Index Page
+Route::get('/1st_admin/dh_dashboard', [DepartmentHeadController::class, 'index'])->name('1st_admin.dh_dashboard');
+
+// Create Page
+Route::get('/1st_admin/actions/dh_add', [DepartmentHeadController::class, 'create'])->name('1st_admin.actions.dh_add');
+Route::post('/1st_admin/actions/dh_add', [DepartmentHeadController::class, 'store']);
+
+// Edit Page
+Route::get('/1st_admin/actions/dh_edit/{id}', [DepartmentHeadController::class, 'edit'])->name('1st_admin.actions.dh_edit');
+Route::post('/1st_admin/actions/dh_edit/{id}', [DepartmentHeadController::class, 'update']);
+
+// Delete
+Route::delete('/1st_admin/dh_delete/{id}', [DepartmentHeadController::class, 'destroy'])->name('1st_admin.dh_delete');
+
+// Display user profiles
+Route::get('/user-profile', [UserProfileController::class, 'index'])->name('user-profile.index');
+
+// Show the form for creating a new user profile
+Route::get('/user-profile/create', [UserProfileController::class, 'create'])->name('user-profile.create');
+
+// Store a newly created user profile in the database
+Route::post('/user-profile', [UserProfileController::class, 'store'])->name('user-profile.store');
+
+// Show the form for editing the specified user profile
+Route::get('/user-profile/{id}/edit', [UserProfileController::class, 'edit'])->name('user-profile.edit');
+
+// Update the specified user profile in the database
+Route::put('/user-profile/{id}', [UserProfileController::class, 'update'])->name('user-profile.update');
+
+// Delete the specified user profile from the database
+Route::delete('/user-profile/{id}', [UserProfileController::class, 'destroy'])->name('user-profile.destroy');

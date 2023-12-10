@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" type="image/png" sizes="4x4" href="{{asset('assets/img/nmpc-logo.png')}}">
-  <title>AdminLTE 3 | Dashboard 2</title>
+  <title>Department Heads Dashboard </title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -279,155 +279,40 @@
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body">
-                          <table id="example1" class="table table-hover">
-                            <thead>
-                              <tr>
+                      <table id="example1" class="table table-hover">
+                        <thead>
+                            <tr>
                                 <th>User Name</th>
                                 <th>Name</th>
                                 <th>Rights</th>
                                 <th>Module</th>
                                 <th>Date Added</th>
                                 <th>Actions</th>
-                              </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>alexander.pierce</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>Management Information System Department</td>
-                                    <td class="module">
-                                        <span class="badge">Mobile Web System</span>
-                                    </td>
-                                    <td>August 23, 2023</td>
-                                    <td style="display: flex; gap: 5%;">
-                                    <a href="" class="icon edit">
-                                        <button type="button" class="btn btn-warning">
-                                        <i class="fas fa-pen-nib"></i>
-                                        </button>
-                                    </a>
-                                    <a href="" class="icon delete">
-                                        <button type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>alexander.pierce</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>Internal Audit</td>
-                                    <td class="module">
-                                        <span class="badge">User Feedback, Whistleblower and Complaint</span>
-                                    </td>
-                                    <td>August 23, 2023</td>
-                                    <td style="display: flex; gap: 5%;">
-                                    <a href="" class="icon edit">
-                                        <button type="button" class="btn btn-warning">
-                                        <i class="fas fa-pen-nib"></i>
-                                        </button>
-                                    </a>
-                                    <a href="" class="icon delete">
-                                        <button type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>alexander.pierce</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>Human Resource Department</td>
-                                    <td class="module">
-                                        <span class="badge">Branch Locator and Job Vacancies</span>
-                                        <span class="badge">Job Application</span>
-                                        <span class="badge">User Feedback, Whistleblower and Complaint</span>
-                                    </td>
-                                    <td>August 23, 2023</td>
-                                    <td style="display: flex; gap: 5%;">
-                                    <a href="" class="icon edit">
-                                        <button type="button" class="btn btn-warning">
-                                        <i class="fas fa-pen-nib"></i>
-                                        </button>
-                                    </a>
-                                    <a href="" class="icon delete">
-                                        <button type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>alexander.pierce</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>Marketing Department</td>
-                                    <td class="module">
-                                        <span class="badge">Appointment System</span>
-                                        <span class="badge">Business Directory</span>
-                                        <span class="badge">Membership Module</span>
-                                        <span class="badge">News and Events Archive</span>
-                                        <span class="badge">User Feedback, Whistleblower and Complaint</span>
-                                    </td>
-                                    <td>August 23, 2023</td>
-                                    <td style="display: flex; gap: 5%;">
-                                    <a href="" class="icon edit">
-                                        <button type="button" class="btn btn-warning">
-                                        <i class="fas fa-pen-nib"></i>
-                                        </button>
-                                    </a>
-                                    <a href="" class="icon delete">
-                                        <button type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>alexander.pierce</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>Area Manager Department</td>
-                                    <td class="module">
-                                        <span class="badge">Personal Loan</span>
-                                    </td>
-                                    <td>August 23, 2023</td>
-                                    <td style="display: flex; gap: 5%;">
-                                    <a href="" class="icon edit">
-                                        <button type="button" class="btn btn-warning">
-                                        <i class="fas fa-pen-nib"></i>
-                                        </button>
-                                    </a>
-                                    <a href="" class="icon delete">
-                                        <button type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>alexander.pierce</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>Executives Department</td>
-                                    <td class="module">
-                                        <span class="badge">BOD Resolution and Issuances Repository System</span>
-                                        <span class="badge">Coop Manuals Repository System</span>
-                                    </td>
-                                    <td>August 23, 2023</td>
-                                    <td style="display: flex; gap: 5%;">
-                                    <a href="" class="icon edit">
-                                        <button type="button" class="btn btn-warning">
-                                        <i class="fas fa-pen-nib"></i>
-                                        </button>
-                                    </a>
-                                    <a href="" class="icon delete">
-                                        <button type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{-- Loop through your users data to populate the table --}}
+                            @foreach($users as $user)
+                            <tr>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->rights }}</td>
+                                <td>{{ implode(', ', explode(',', $user->modules)) }}</td>
+                                <td>{{ $user->created_at->format('Y-m-d H:i:s') }}</td>
+                                <td>
+                                    {{-- Add links or buttons for actions like edit and delete --}}
+                                    <a href="{{ route('1st_admin.actions.dh_edit', ['id' => $user->id]) }}" class="btn btn-primary">Edit</a>
+                                    <form action="{{ route('1st_admin.dh_delete', ['id' => $user->id]) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                                            </div>
                         <!-- /.card-body -->
                       </div>
                       <!-- /.card -->

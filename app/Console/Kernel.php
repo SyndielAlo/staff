@@ -1,5 +1,7 @@
 <?php
 
+// app/Console/Kernel.php
+
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
@@ -24,4 +26,17 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
+    /**
+     * The application's route middleware groups.
+     *
+     * @var array
+     */
+    protected $middlewareGroups = [
+        'web' => [
+            // ... other middlewares
+            \App\Http\Middleware\LogUserLogin::class,
+        ],
+    ];
 }
+

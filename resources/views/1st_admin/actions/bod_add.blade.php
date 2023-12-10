@@ -293,20 +293,18 @@
         <section class="content">
     <div class="container-fluid">
         <div class="card card-default card-info">
-            @if(session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            @if(session('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
-            @endif
+                @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
             <div class="card-body">
-                <form action="{{ route('add-bod') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('bod_store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -366,9 +364,7 @@
                                         <input type="file" class="custom-file-input" id="file" name="file">
                                         <label class="custom-file-label" for="file">Choose file</label>
                                     </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
+                            
                                 </div>
                             </div>
                         </div>

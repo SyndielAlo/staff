@@ -12,7 +12,8 @@ class ResolutionController extends Controller
     public function index()
     {
         $resolutions = Resolution::all();
-        return view('1st_admin.dashboard', compact('resolutions'));
+        $totalResolutions = Resolution::sum('id');
+        return view('1st_admin.dashboard', compact('resolutions', 'totalResolutions'));
     }
 
     public function create()

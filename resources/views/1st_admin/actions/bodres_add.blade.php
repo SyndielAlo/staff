@@ -347,7 +347,7 @@
                     <label for="validationCustom03" class="form-label">Encoded by</label>
                     <div class="input-group">
                         <span class="input-group-text">Name & Date</span>
-                        <input type="text" name="encoded_by_name" id="Name" aria-label="Name" class="form-control">
+                        <input type="text" name="encoded_by_name" id="Name" aria-label="Name" class="form-control" value="{{ Auth::check() ? Auth::user()->username : '' }}">
                         <input type="date" name="encoded_by_date" id="Date" aria-label="Date" class="form-control">
                     </div>
                 </div>

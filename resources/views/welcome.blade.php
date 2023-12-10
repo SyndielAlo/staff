@@ -164,7 +164,7 @@
                         Have a great day, <span>admin!</span>
                     </p>
                     <div class="action_btns">
-                        <a href="{{route('bod-login')}}" class="BOD">BOD admin</a>
+                        <a href="{{route('login-BOD')}}" class="BOD">BOD admin</a>
                         <a href="{{route('dh-login')}}" class="DH">Department Head admin</a>
                     </div>
                 </div>

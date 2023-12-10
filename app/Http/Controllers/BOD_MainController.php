@@ -11,6 +11,7 @@ class BOD_MainController extends Controller
     public function index()
     {
         $main = Committee::all();
-        return view('1st_admin.BOD (view only).BOD_dashboard', compact('main'));
+        $totalCommittee = Committee::sum('id');
+        return view('1st_admin.BOD (view only).BOD_dashboard', compact('main','totalCommittee'));
     }
 }

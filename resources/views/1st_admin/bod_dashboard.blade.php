@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" type="image/png" sizes="4x4" href="{{asset('assets/img/nmpc-logo.png')}}">
-  <title>AdminLTE 3 | Dashboard 2</title>
+  <title>Board OF Directors Dashboard </title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -268,7 +268,7 @@
                 <div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title"><button type="button" class="btn btn-block bg-gradient-primary">Add Board of Director</button></h3>
+                        <h3 class="card-title"><a href="{{ route('bod_create') }}" class="btn btn-block bg-gradient-primary">Add BOD Members</a></h3>
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body">
@@ -286,320 +286,35 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>0</td>
-                                    <td></td>
-                                    <td>Available Position</td>
-                                    <td><span></span></td>
-                                    <td>
-                                        <img src="{{asset('assets/dist/img/user1-128x128.jpg')}}" style="width: 48px;" class="img-circle">
-                                    </td>
-                                    <td><span class="badge">Open</span></td>
-                                    <td style="display: flex; gap: 5%;">
-                                    <a href="" class="icon edit">
-                                        <button type="button" class="btn btn-warning">
-                                        <i class="fas fa-pen-nib"></i>
-                                        </button>
-                                    </a>
-                                    <a href="" class="icon delete">
-                                        <button type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td>1</td>
-                                <td>David N. Almarez, DM</td>
-                                <td>Chairperson</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                    <img src="{{asset('assets/dist/img/user1-128x128.jpg')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>2</td>
-                                <td>Prof. Edna E. Aberilla</td>
-                                <td>Chairperson Emeritus</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/avatar.png')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>3</td>
-                                <td>Myrna P. Calo</td>
-                                <td>Vice Chairperson</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/user2-160x160.jpg')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>4</td>
-                                <td>Rebecca M. Alcuizar, Ph.D</td>
-                                <td>Director</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/avatar2.png')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>5</td>
-                                <td>Niña Flor B. Batara, JD</td>
-                                <td>Director</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/user3-128x128.jpg')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>6</td>
-                                <td>Corazon V. Ligaray, Ph.D</td>
-                                <td>Director</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/avatar3.png')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>7</td>
-                                <td>Nora A. Clar, MAT</td>
-                                <td>Director</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/user4-128x128.jpg')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>8</td>
-                                <td>Roly Ann A. Claro, DM</td>
-                                <td>Director</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/avatar4.png')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>9</td>
-                                <td>Loradel B. Pabillar, CPA</td>
-                                <td>Director</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/user5-128x128.jpg')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>10</td>
-                                <td>Emmanuel C. Villanueva, CPA, MBM, CSEE</td>
-                                <td>Director</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/avatar5.png')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>11</td>
-                                <td>Ricardo C. Enguito, MPA</td>
-                                <td>BOD Secretary</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/user6-128x128.jpg')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>12</td>
-                                <td>Albert B. Teaño, JD</td>
-                                <td>Chief Executive Officer</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/user7-128x128.jpg')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>13</td>
-                                <td>Erma Y. Darunday, CPA, MBM, JD</td>
-                                <td>BOD Treasurer</td>
-                                <td><span>2023-2025</span></td>
-                                <td>
-                                <img src="{{asset('assets/dist/img/user8-128x128.jpg')}}" style="width: 48px;" class="img-circle">
-                                </td>
-                                <td><span class="badge badge-amen">Closed</span></td>
-                                <td style="display: flex; gap: 5%;">
-                                  <a href="" class="icon edit">
-                                    <button type="button" class="btn btn-warning">
-                                      <i class="fas fa-pen-nib"></i>
-                                    </button>
-                                  </a>
-                                  <a href="" class="icon delete">
-                                    <button type="button" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    </button>
-                                  </a>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <!-- /.card-body -->
-                      </div>
-                      <!-- /.card -->
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->Position }}</td>
+                            <td>{{ $user->Period }}</td>
+                            <td>
+                                @if($user->image)
+                                    <img src="{{ asset('storage/' . $user->image) }}" alt="{{ $user->name }}" width="50">
+                                @else
+                                    No Photo
+                                @endif
+                            </td>
+                            <td>{{ $user->Status }}</td>
+                            <td>
+                                {{-- Add actions like edit and delete buttons with appropriate routes --}}
+                                <a href="{{ route('bod_edit', $user->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                <form action="{{ route('bod_destroy', $user->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
                     </div>
                   </div>
                 </div>

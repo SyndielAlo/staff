@@ -331,49 +331,46 @@
                         <!-- Profile Image -->
                         <div class="card card-secondary card-outline">
                             <div class="card-body box-profile inline-block">
-                                <form class="form-horizontal pb-3">
+                                <form action="{{ route('user-profile', $userProfile->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                            <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="{{ old('inputName', $userProfile->name) }}">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Username</label>
-                                        <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputEmail" placeholder="Username">
-                                        </div>
-                                    </div>
+
                                     <div class="form-group row">
                                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                         <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                            <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" value="{{ old('inputEmail', $userProfile->email) }}">
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
                                         <label for="inputName2" class="col-sm-2 col-form-label">Old Password</label>
                                         <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputName2" placeholder="Old Password">
+                                            <input type="password" class="form-control" id="inputName2" name="inputName2" placeholder="Old Password">
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
                                         <label for="inputName2" class="col-sm-2 col-form-label">New Password</label>
                                         <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputName2" placeholder="New Password">
+                                            <input type="password" class="form-control" id="inputName2" name="inputName2" placeholder="New Password">
                                         </div>
                                     </div>
-                                </form>
-                                <!-- /.form-group -->
 
-                                <div class="col-12 mt-5">
-                                    <a href="{{url('bodres-dashboard')}}" class="btn btn-danger">Cancel</a>
-                                    <a href="">
-                                        <input type="submit" value="Update" class="btn btn-warning float-right">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
+                                    <!-- Add more form fields as needed -->
+
+                                    <div class="col-12 mt-5">
+                                        <a href="{{ url('bodres-dashboard') }}" class="btn btn-danger">Cancel</a>
+                                        <button type="submit" class="btn btn-warning float-right">Update</button>
+                                    </div>
+                                </form>
+                                        <!-- /.card-body -->
                     </div>
                         <!-- /.card -->
                     </div>

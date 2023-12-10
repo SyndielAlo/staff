@@ -12,6 +12,13 @@ class AuthController extends Controller
         return view('auth.BOD_login');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('welcome');
+    }
+
     public function login(Request $request)
     {
         $credentials = $request->only('username', 'password');
@@ -20,9 +27,9 @@ class AuthController extends Controller
             $user = Auth::user();
 
             if ($user->admin == 1) {
-                return redirect()->route('1st_admin.BOD (view only).BOD_dashboard');
+                return redirect()->route('bod-dashboard');
             } else {
-                return redirect()->route('1st_admin.dashboard');
+                return redirect()->route('dashboard');
             }
         }
 

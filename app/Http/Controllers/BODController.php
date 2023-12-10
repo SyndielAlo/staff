@@ -1,63 +1,134 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Log;
+
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class BODController extends Controller
 {
-    public function showForm()
+    public function index()
+    {
+        $users = User::where('level_group', 'BOD')->get();
+        return view('1st_admin.bod_dashboard', compact('users'));
+    }
+
+    public function create()
     {
         return view('1st_admin.actions.bod_add');
     }
 
-    public function addBOD(Request $request)
-    {  
-        // Validation rules
-        $rules = [
+    public function store(Request $request)
+    {
+        // Validate the form data
+        $request->validate([
             'name' => 'required|string',
             'position' => 'required|string',
             'period' => 'required|string',
-            'file' => 'required|file|mimes:jpeg,png,pdf,doc,docx|max:3048',
-            'status' => 'required|string|in:Open,Closed',
-            'username' => 'required|string|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'admin' => 'required|in:1,0',
-        ];
+            'status' => 'required|string',
+            'username' => 'required|string',
+            'password' => 'required|string',
+            'admin' => 'required|boolean',
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-        // Validate the form data
-        $request->validate($rules);
+        // Create a new user instance
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->committee = 'NOT';
+        $user->position = $request->input('position');
+        $user->period = $request->input('period');
+        $user->status = $request->input('status');
+        $user->username = $request->input('username');
+        $user->password = bcrypt($request->input('password'));
+        $user->admin = $request->input('admin'); // Save the admin level
+        $user->level_group = 'BOD';
+        // Handle file upload
+        $imagePath = $request->file('file')->store('users', 'public');
+        Log::info('Image Path: ' . $imagePath);
 
-        try {
-            // Process the form data and save to the database
-            $user = new User();
-            $user->name = $request->input('name');
-            $user->Position = $request->input('position');
-            $user->Period = $request->input('period');
-            $user->Status = $request->input('status');
-            $user->username = $request->input('username');
-            $user->password = bcrypt($request->input('password'));
-            $user->admin = $request->input('admin'); // Save the admin level
+        // Save the image path to the database
+        $user->image = $imagePath;
 
-            // Handle file upload
-            $imagePath = $request->file('file')->store('users', 'public');
-            Log::info('Image Path: ' . $imagePath);
-            // Save the image path to the database
-            $user->image = $imagePath;
+        // Save the user data to the database
+        $user->save();
 
-            // Save the user to the database
-            $user->save();
-            dd('Checkpoint 1');
-            // Redirect with success message
-            return redirect()->route('bod-dashboard')->with('success', 'BOD added successfully!');
-
-        } catch (\Exception $e) {
-            // Log the exception for debugging
-            Log::error($e);
-
-            // Redirect back with error message
-            return back()->with('error', 'An error occurred while processing your request. Please try again.');
-        }
+        // Redirect back or to a success page
+        return redirect()->route('bod_dashboard')->with('success', 'Board member added successfully')->withInput();
     }
+
+    public function edit($id)
+{
+    $user = User::find($id);
+    return view('1st_admin.actions.bod_edit', compact('user'));
+}
+
+public function update(Request $request, $id)
+{
+    // Validation
+    $request->validate([
+        'name' => 'required|string',
+        'position' => 'required|string',
+        'period' => 'required|string',
+        'status' => 'required|string',
+        'username' => 'required|string',
+        'password' => 'nullable|string',
+        'admin' => 'required|boolean',
+        'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    // Update data
+    $user = User::find($id);
+    $user->name = $request->input('name');
+    $user->position = $request->input('position');
+    $user->period = $request->input('period');
+    $user->status = $request->input('status');
+    $user->username = $request->input('username');
+    
+    // Update password if provided
+    if ($request->filled('password')) {
+        $user->password = bcrypt($request->input('password'));
+    }
+
+    // Update admin level
+    $user->admin = $request->input('admin');
+
+    // Handle file upload if a new file is provided
+    if ($request->hasFile('file')) {
+        // Delete the old file
+        Storage::disk('public')->delete($user->image);
+
+        // Handle the new file upload
+        $imagePath = $request->file('file')->store('users', 'public');
+        Log::info('Image Path: ' . $imagePath);
+
+        // Save the new image path to the database
+        $user->image = $imagePath;
+    }
+
+    // Save the updated user data to the database
+    $user->save();
+
+    return redirect()->route('bod_dashboard')->with('success', 'Board member updated successfully.')->withInput();
+}
+
+public function destroy($id)
+{
+    // Find the record by its ID
+    $user = User::find($id);
+
+    // Check if the record exists
+    if ($user) {
+        // Delete the record
+        $user->delete();
+
+        // Optionally, you can redirect with a success message
+        return redirect()->route('bod_dashboard')->with('success', 'Board member deleted successfully!');
+    } else {
+        // If the record doesn't exist, you may want to handle this case (e.g., show an error message)
+        return redirect()->route('bod_dashboard')->with('error', 'Board member not found!');
+    }
+}
 }

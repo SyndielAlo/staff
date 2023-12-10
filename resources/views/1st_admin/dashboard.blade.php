@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" type="image/png" sizes="4x4" href="{{asset('assets/img/nmpc-logo.png')}}">
-  <title>AdminLTE 3 | Dashboard 2</title>
+  <title>Admin Dashboard </title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -166,12 +166,21 @@
             <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-4 pb-3 mb-3 d-flex">
-                <div class="image">
-                <img src="{{asset('assets/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2">
+            <div class="image">
+                    @if(Auth::check() && Auth::user()->image)
+                        <img src="{{ asset('storage/app/public/users/' . Auth::user()->image) }}" class="img-circle elevation-2" alt="User Image">
+                    @else
+                        <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="Default Image">
+                    @endif
                 </div>
                 <div class="info">
-                <a href="#" style="font-size: 15px; text-transform: capitalize; font-weight: 400;" class="ml-2 d-block">Alexander Pierce</a>
-                </div>
+                @if(Auth::check())
+                    <a href="#" style="font-size: 15px; text-transform: capitalize; font-weight: 400;" class="ml-2 d-block">
+                        {{ Auth::user()->username }}
+                    </a>
+                @endif
+            </div>
+
             </div>
 
             <!-- Sidebar Menu -->
@@ -227,10 +236,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        
                         <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
                         <p>
-                            Logout
+                        <a href="{{ route('logout') }}" class="nav-link">Logout</a>
                             <i class="right fas fa-angle-left"></i>
                         </p>
                         </a>
@@ -269,11 +278,11 @@
                     <div class="col-lg-4 col-6">
                         <!-- small card -->
                         <div style="background: #ffc107;" class="small-box shadow">
-                            <div class="inner">
-                                <h3>12k</h3>
-                                <p>BOD Resolutions</p>
-                            </div>
-                            <div class="icon">
+                        <div class="inner">
+                            <h3>{{ $totalResolutions }}</h3>
+                            <p>BOD Resolutions</p>
+                        </div>
+                                  <div class="icon">
                                 <i class="fas fa-folder-closed"></i>
                             </div>
                         <a href="#" style="color: black;" class="small-box-footer"> More info <i class="fas fa-arrow-circle-right"></i></a>

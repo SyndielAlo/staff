@@ -289,73 +289,88 @@
         </div>
         <!-- /.content-header -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <div class="card card-default card-info">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="inputName">Name</label>
-                                    <input type="text" id="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="inputName">Username</label>
-                                    <input type="text" id="" class="form-control">
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <div class="form-group col-md-6">
-                                    <label for="inputName">Password</label>
-                                    <input type="password" id="" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Rights</label>
-                                    <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;">
-                                        <option selected="selected">Select a Right</option>
-                                        <option>Management Information System Department</option>
-                                        <option>Internal Audit</option>
-                                        <option>Human Resource Department</option>
-                                        <option>Marketing Department</option>
-                                        <option>Area Manager Department</option>
-                                        <option>Executive Department</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Module</label>
-                                <select class="select2" multiple="multiple" data-placeholder="Select a Module" style="width: 100%;">
-                                    <option>Mobile Web System</option>
-                                    <option>User Feedback, Whistleblower and Complaint</option>
-                                    <option>Personal Loan</option>
-                                    <option>News and Events Archive</option>
-                                    <option>Branch Locator and Job Vacancies</option>
-                                    <option>Job Application</option>
-                                    <option>Membership Module</option>
-                                    <option>BOD Resolution and Issuances Repository System</option>
-                                    <option>Coop Manuals Repository System</option>
-                                    <option>Appointment System</option>
-                                </select>
-                                </div>
-                            </div>
+     <!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-default card-info">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control">
                         </div>
-
-                        <div class="col-12 mt-5">
-                            <a href="#" class="btn btn-danger">Cancel</a>
-                            <input type="submit" value="Add Department Head" class="btn btn-success float-right">
-                        </div>
-
                     </div>
-                    <!-- /.col-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="file">File input</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="file" name="file">
+                                    <label class="custom-file-label" for="file">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm">Confirm Password</label>
+                            <input type="password" id="confirm" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="rights">Rights</label>
+                            <select class="form-control select2 select2-primary" id="rights" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option selected="selected">Select a Right</option>
+                                <option>Management Information System Department</option>
+                                <option>Internal Audit</option>
+                                <option>Human Resource Department</option>
+                                <option>Marketing Department</option>
+                                <option>Area Manager Department</option>
+                                <option>Executive Department</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="module">Module</label>
+                            <select class="select2" multiple="multiple" id="module" data-placeholder="Select a Module" style="width: 100%;">
+                                <option>Mobile Web System</option>
+                                <option>User Feedback, Whistleblower and Complaint</option>
+                                <option>Personal Loan</option>
+                                <option>News and Events Archive</option>
+                                <option>Branch Locator and Job Vacancies</option>
+                                <option>Job Application</option>
+                                <option>Membership Module</option>
+                                <option>BOD Resolution and Issuances Repository System</option>
+                                <option>Coop Manuals Repository System</option>
+                                <option>Appointment System</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.card -->
+
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <a href="#" class="btn btn-danger">Cancel</a>
+                        <input type="submit" value="Add Department Head" class="btn btn-success float-right">
+                    </div>
+                </div>
             </div>
-        </section>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
