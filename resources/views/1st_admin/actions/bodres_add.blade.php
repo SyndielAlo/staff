@@ -309,7 +309,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="res_number">Res. No.</label>
-                        <input type="text" id="res_number" name="res_number" class="form-control" readonly>
+                        <input type="text" id="res_number" name="res_number" class="form-control" >
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -419,18 +419,6 @@
 <script src="{{asset('assets/plugins/codemirror/mode/css/css.js')}}"></script>
 <script src="{{asset('assets/plugins/codemirror/mode/xml/xml.js')}}"></script>
 <script src="{{asset('assets/plugins/codemirror/mode/htmlmixed/htmlmixed.js')}}"></script>
-<script>
-        $(document).ready(function() {
-            // Function to generate a random number and set it to the res_number input
-            function generateRandomNumber() {
-                var randomNumber = Math.floor(Math.random() * 1000) + 1; // Change the range as needed
-                $('#res_number').val(randomNumber);
-            }
-
-            // Call the function when the page loads
-            generateRandomNumber();
-        });
-    </script>
 
 <script>
   $(function () {

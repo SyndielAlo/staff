@@ -9,7 +9,7 @@ use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\BOD_MainController;
 use App\Http\Controllers\BOD_ResolutionController;
 use App\Http\Controllers\BOD_DHController;
-use App\Http\Controllers\Add_BODController;
+use App\Http\Controllers\BODController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +47,8 @@ Route::get('/bod-dashboard-main', [DasboardTest_controller::class, 'bod_dashboar
 Route::get('/bod-committee-dashboard', [DasboardTest_controller::class, 'bod_committee_dashboard'])->name('bod-committee-dashboard');
 Route::get('/bod-resolution-dashboard', [DasboardTest_controller::class, 'bod_resolution_dashboard'])->name('bod-resolution-dashboard');
 Route::get('/department-head-dashboard', [DasboardTest_controller::class, 'department_head_dashboard'])->name('department-head-dashboard');
+
+//login form
 Route::get('/bod-login', [LoginTest_controller::class, 'bodLogin'])->name('bod-login');
 Route::get('/dh-login', [LoginTest_controller::class, 'dhLogin'])->name('dh-login');
 
@@ -71,6 +73,8 @@ Route::get('/bod-resolution', [BOD_ResolutionController::class, 'index'])->name(
 //BOD main DH
 Route::get('/bod-dh', [BOD_DHController::class, 'index'])->name('bod.dh');
 
-//BOD Crud
-Route::get('/add_bod_form', [Add_BODController::class, 'showForm'])->name('add_bod_form');
-Route::post('/add_bod_submit', [Add_BODController::class, 'submitForm'])->name('add_bod_submit');
+
+// Route to show the form
+Route::get('/bod-form', [BODController::class, 'showForm'])->name('bod-form');
+// Route to handle form submission
+Route::post('/add-bod', [BODController::class, 'addBOD'])->name('add-bod');

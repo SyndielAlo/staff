@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
   <meta charset="utf-8">
@@ -291,26 +291,61 @@
 
         <!-- Main content -->
         <section class="content">
-        <div class="container-fluid">
-            <div class="card card-default card-info">
-                <div class="card-body">
-                    <form action="{{ route('add_bod_submit') }}" method="post" enctype="multipart/form-data">
-                        @csrf
+    <div class="container-fluid">
+        <div class="card card-default card-info">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control">
-                                </div>
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+            <div class="card-body">
+                <form action="{{ route('add-bod') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Fullname">
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="position">Position</label>
-                                    <input type="text" id="position" name="position" class="form-control">
-                                </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" class="form-control">
                             </div>
-                            <div class="form-group col-md-6">
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" id="confirm_password" name="password_confirmation" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="position">Position</label>
+                                <input type="text" id="position" name="position" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>Period</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -321,37 +356,59 @@
                                     <input type="text" class="form-control float-right" id="reservation" name="period">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="file">File input</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="file" name="file">
-                                            <label class="custom-file-label" for="file">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
-                                        </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="file">File input</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="file" name="file">
+                                        <label class="custom-file-label" for="file">Choose file</label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <select class="form-control select2 select2-primary" id="status" name="status" data-dropdown-css-class="select2-primary" style="width: 100%;">
-                                        <option selected="selected">Select a Status</option>
-                                        <option>Open</option>
-                                        <option>Closed</option>
-                                    </select>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-12 mt-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select class="form-control select2 select2-primary" id="status" name="status" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                    <option selected="selected">Select a Status</option>
+                                    <option>Open</option>
+                                    <option>Closed</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="admin">Admin Level</label>
+                                <select class="form-control select2 select2-primary" id="admin" name="admin" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                    <option selected="selected">Admin</option>
+                                    <option value="1">BOD</option>
+                                    <option value="0">Admin assistant</option>
+                                    <option value="0">BOD Secretary</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-12">
                             <a href="#" class="btn btn-danger">Cancel</a>
                             <button type="submit" class="btn btn-success float-right">Add BOD Resolution</button>
                         </div>
-                    </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
                 </div>
             </div>
         </div>
@@ -409,6 +466,18 @@
 <script src="{{asset('assets/plugins/codemirror/mode/css/css.js')}}"></script>
 <script src="{{asset('assets/plugins/codemirror/mode/xml/xml.js')}}"></script>
 <script src="{{asset('assets/plugins/codemirror/mode/htmlmixed/htmlmixed.js')}}"></script>
+<script>
+    $(document).ready(function() {
+        // Add an event listener to the file input
+        $('#file').on('change', function() {
+            // Get the selected file name
+            var fileName = $(this).val().split('\\').pop();
+            
+            // Update the label with the selected file name
+            $(this).next('.custom-file-label').html(fileName);
+        });
+    });
+</script>
 
 <script>
   $(function () {

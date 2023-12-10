@@ -11,11 +11,22 @@ class Committee extends Model
     protected $table = 'users';
     protected $fillable = [
         'id',
+        'username',
         'name',
-        'Committee', 
-        'Position', 
+        'Committee',
+        'Position',
+        'admin',
         'Period',
-        'Photo',
+        'image',
         'Status',
+        'file',
+        'rights',
+        'module',
+        'email',
+        'email_verified_at',
+        'password',
+        'remember_token',
+        'created_at',
+        'updated_at',
     ];
 }
