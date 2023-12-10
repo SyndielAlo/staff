@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" type="image/png" sizes="4x4" href="{{asset('assets/img/nmpc-logo.png')}}">
-  <title>AdminLTE 3 | Dashboard 2</title>
+  <title>msu-iit nmpc</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -184,88 +184,108 @@
     <aside style="background: #212529; color: white;" class="main-sidebar sidebar-dark-primary elevation-4">
 
         <!-- Brand Logo -->
-            <a href="" style="background: #212529; color: white" class="mt-1 pb-3 d-flex brand-link">
+        <a href="" style="background: #212529; color: white" class="mt-1 pb-3 d-flex brand-link">
             <img src="{{asset('assets/img/nmpc-logo.png')}}" class="logo">
-            <span class="brand-text font-weight-bold">MSU-IIT NMPC</span>
+            <span class="brand-text font-weight-bold">msu-iit nmpc</span>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-4 pb-3 mb-3 d-flex">
-                    <div class="image">
-                    <img src="{{asset('assets/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2">
-                    </div>
-                    <div class="info">
-                    <a href="#" style="font-size: 15px; text-transform: capitalize; font-weight: 400;" class="ml-2 d-block">Alexander Pierce</a>
-                    </div>
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-4 pb-3 mb-3 d-flex">
+                <div class="image">
+                <img src="{{asset('assets/img/admin.png')}}" class="img-circle elevation-2">
                 </div>
+                <div class="info">
+                <a href="#" style="font-size: 15px; text-transform: capitalize; font-weight: 400; color:white;" class="ml-2 d-block font-weight-bold">Alexander Pierce</a>
+                </div>
+            </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-folder-closed"></i>
-                                <p> BOD Resolutions </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" style="background: #9C0D0F;" class="nav-link active">
-                                <i class="nav-icon fas fa-user-tie"></i>
-                                <p> Board of Directors </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                    with font-awesome or any other icon font library -->
+                    <li class="nav-item">
+                        <a href="{{url('bodres-dashboard')}}" class="nav-link">
+                            <i class="nav-icon fas fa-folder-closed"></i>
+                            <p> BOD Resolutions </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('BOD-dashboard')}}" class="nav-link">
+                            <i class="nav-icon fas fa-building-user"></i>
+                            <p>
+                                BOD Members
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{url('BOD-dashboard')}}" class="nav-link">
+                                    <i class="nav-icon fas fa-user-tie"></i>
+                                    <p> Board of Directors </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('BOD-Com-dashboard')}}" class="nav-link">
+                                    <i class="fas fa-users nav-icon"></i>
+                                    <p> Const. Committees </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('dh-dashboard')}}" class="nav-link">
                             <i class="nav-icon fas fa-users-gear"></i>
                             <p>
                                 Department Heads
                                 <i class="right fas fa-angle-left"></i>
                             </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="fas fa-book nav-icon"></i>
-                                        <p> Logs </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                    <li class="nav-header">OTHERS</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-gear"></i>
-                        <p>
-                            Settings
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
                         </a>
                         <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="fas fa-user-gear nav-icon"></i>
-                            <p>Update Profile</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
-                            <p>
-                                Logout
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
+                            <li class="nav-item">
+                                <a href="{{url('dh-dashboard')}}" class="nav-link">
+                                    <i class="far fa-circle-user nav-icon"></i>
+                                    <p> Department Heads </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('dh-logs')}}" class="nav-link">
+                                    <i class="fas fa-book nav-icon"></i>
+                                    <p> Logs </p>
+                                </a>
+                            </li>
                         </ul>
-                </nav>
-            <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
+                    </li>
+
+
+                <li class="nav-header">OTHERS</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-gear"></i>
+                    <p>
+                        Settings
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{url('users/update-profile')}}" style="background: #9C0D0F; color:white;" class="nav-link active">
+                        <i class="fas fa-user-gear nav-icon"></i>
+                        <p>Update Profile</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-arrow-right-from-bracket nav-icon"></i>
+                            <p>Logout</p>
+                        </a>
+                    </ul>
+            </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
@@ -275,14 +295,7 @@
             <div class="container-fluid">
                 <div class="row mt-3 mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Board of Directors</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item">Board of Directors</li>
-                            <li class="breadcrumb-item active">Add Board of Director</li>
-                        </ol>
+                        <h1 class="m-0">Update Profile</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -291,71 +304,85 @@
 
         <!-- Main content -->
         <section class="content">
-        <div class="container-fluid">
-            <div class="card card-default card-info">
-                <div class="card-body">
-                    <form action="{{ route('add_bod_submit') }}" method="post" enctype="multipart/form-data">
-                        @csrf
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- Profile Image -->
+                        <div class="card card-secondary card-outline">
+                            <div class="card-body box-profile mb-2">
+                                <div class="text-center">
+                                    <img style="width: 150px;" class="profile-user-img img-fluid img-circle mb-3" src="{{asset('assets/dist/img/user4-128x128.jpg')}}">
+                                </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control">
-                                </div>
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item"> <strong style="text-transform: uppercase;">Name</strong> <a style="font-weight: 10px; color: #212529;" class="float-right">Alexander Piere</a> </li>
+                                    <li class="list-group-item"> <strong style="text-transform: uppercase;">Username</strong> <a style="font-weight: 10px; color: #212529;" class="float-right">alexander.piere</a> </li>
+                                    <li class="list-group-item"> <strong style="text-transform: uppercase;">Role</strong> <a style="font-weight: 10px; color: #212529;" class="float-right">BOD Secretary</a> </li>
+                                </ul>
+
+                                <a href="#" class="btn btn-secondary btn-block"><strong>INFO</strong></a>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="position">Position</label>
-                                    <input type="text" id="position" name="position" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Period</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control float-right" id="reservation" name="period">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="file">File input</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="file" name="file">
-                                            <label class="custom-file-label" for="file">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-9">
+                        <!-- Profile Image -->
+                        <div class="card card-secondary card-outline">
+                            <div class="card-body box-profile inline-block">
+                                <form class="form-horizontal pb-3">
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputName" placeholder="Name">
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <select class="form-control select2 select2-primary" id="status" name="status" data-dropdown-css-class="select2-primary" style="width: 100%;">
-                                        <option selected="selected">Select a Status</option>
-                                        <option>Open</option>
-                                        <option>Closed</option>
-                                    </select>
+                                    <div class="form-group row">
+                                        <label for="inputEmail" class="col-sm-2 col-form-label">Username</label>
+                                        <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputEmail" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputName2" class="col-sm-2 col-form-label">Old Password</label>
+                                        <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="inputName2" placeholder="Old Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputName2" class="col-sm-2 col-form-label">New Password</label>
+                                        <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="inputName2" placeholder="New Password">
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- /.form-group -->
+
+                                <div class="col-12 mt-5">
+                                    <a href="{{url('bodres-dashboard')}}" class="btn btn-danger">Cancel</a>
+                                    <a href="">
+                                        <input type="submit" value="Update" class="btn btn-warning float-right">
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                        <!-- /.card-body -->
+                    </div>
+                        <!-- /.card -->
+                    </div>
 
-                        <div class="col-12 mt-5">
-                            <a href="#" class="btn btn-danger">Cancel</a>
-                            <button type="submit" class="btn btn-success float-right">Add BOD Resolution</button>
-                        </div>
-                    </form>
+
                 </div>
+                <!-- /.row -->
             </div>
-        </div>
-    </section>
+        </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -545,7 +572,6 @@
   document.querySelector("#actions .cancel").onclick = function() {
     myDropzone.removeAllFiles(true)
   }
-
 
   // DropzoneJS Demo Code End
 </script>

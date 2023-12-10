@@ -5,6 +5,11 @@ use App\Http\Controllers\DasboardTest_controller;
 use App\Http\Controllers\CrudTest_controller;
 use App\Http\Controllers\LoginTest_controller;
 use App\Http\Controllers\ResolutionController;
+use App\Http\Controllers\CommitteeController;
+use App\Http\Controllers\BOD_MainController;
+use App\Http\Controllers\BOD_ResolutionController;
+use App\Http\Controllers\BOD_DHController;
+use App\Http\Controllers\Add_BODController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,10 +49,28 @@ Route::get('/bod-resolution-dashboard', [DasboardTest_controller::class, 'bod_re
 Route::get('/department-head-dashboard', [DasboardTest_controller::class, 'department_head_dashboard'])->name('department-head-dashboard');
 Route::get('/bod-login', [LoginTest_controller::class, 'bodLogin'])->name('bod-login');
 Route::get('/dh-login', [LoginTest_controller::class, 'dhLogin'])->name('dh-login');
-//Resolution 
+
+//Admin dashboards
 Route::get('/dashboard', [ResolutionController::class, 'index'])->name('dashboard');
+//BOD main dashboard
+Route::get('/bod-dashboard', [BOD_MainController::class, 'index'])->name('bod-dashboard');
+
+//Resolution 
 Route::get('/resolution/create', [ResolutionController::class, 'create'])->name('resolution.create');
 Route::post('/resolution/store', [ResolutionController::class, 'store'])->name('resolution.store');
 Route::get('/resolution/edit/{id}', [ResolutionController::class, 'edit'])->name('resolution.edit');
 Route::put('/resolution/update/{id}', [ResolutionController::class, 'update'])->name('resolution.update');
 Route::delete('/resolution/delete/{id}', [ResolutionController::class, 'destroy'])->name('resolution.delete');
+
+
+//committee
+Route::get('/bod-committee-dashboard', [CommitteeController::class, 'index'])->name('bod-committee-dashboard');
+
+//BOD main resolution
+Route::get('/bod-resolution', [BOD_ResolutionController::class, 'index'])->name('bod.resolution');
+//BOD main DH
+Route::get('/bod-dh', [BOD_DHController::class, 'index'])->name('bod.dh');
+
+//BOD Crud
+Route::get('/add_bod_form', [Add_BODController::class, 'showForm'])->name('add_bod_form');
+Route::post('/add_bod_submit', [Add_BODController::class, 'submitForm'])->name('add_bod_submit');

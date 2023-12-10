@@ -87,18 +87,18 @@ class ResolutionController extends Controller
             'encoded_by_name' => 'required',
             'encoded_by_date' => 'required|date',
         ]);
-
+    
         // Update data
         $resolution = Resolution::find($id);
         $resolution->update([
             'res_number' => $request->input('res_number'),
             'agenda' => $request->input('agenda'),
-            'res_date' => $request->input('res_date'),
+            'res_date' => date('Y-m-d H:i:s', strtotime($request->input('res_date'))),
             'status' => $request->input('status'),
             'encoded_by_name' => $request->input('encoded_by_name'),
-            'encoded_by_date' => $request->input('encoded_by_date'),
+            'encoded_by_date' => date('Y-m-d H:i:s', strtotime($request->input('encoded_by_date'))),
         ]);
-
+    
         return redirect()->route('dashboard')->with('success', 'Resolution updated successfully.')->withInput();
     }
 
